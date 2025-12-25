@@ -1,3 +1,5 @@
+import titleLogo from '/osaki_ft_title.png?url'
+
 interface HeaderProps {
     currentTime: Date;
 }
@@ -13,7 +15,7 @@ export default function Header({ currentTime }: HeaderProps) {
             {/* タイトル */}
             <h1 className="flex justify-start">
                 <img
-                    src="/osaki_ft_title.png"
+                    src={titleLogo}
                     alt="大崎上島 フェリー時刻表"
                     className="w-1/2"
                 />
