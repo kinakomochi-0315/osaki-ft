@@ -7,7 +7,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   base: '/osaki-ft/',
   plugins: [react(), tailwindcss(), VitePWA({
-    devOptions: { enabled: true },
+    injectRegister: 'auto',
     registerType: "autoUpdate",
     manifest: {
       name: "大崎上島フェリー時刻表",
@@ -17,19 +17,32 @@ export default defineConfig({
       background_color: "#eff6ff",
       display: "standalone",
       orientation: "portrait",
-      start_url: "./",
+      scope: '/osaki-ft/',
+      start_url: "/osaki-ft/",
       icons: [
         {
-          src: "./osaki_ft_logo_192x192.png",
+          src: "osaki_ft_logo_192x192.png",
           sizes: "192x192",
           type: "image/png",
-          purpose: "any maskable"
+          purpose: "any"
         },
         {
-          src: "./osaki_ft_logo_512x512.png",
+          src: "osaki_ft_logo_192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "osaki_ft_logo_512x512.png",
           sizes: "512x512",
           type: "image/png",
-          purpose: "any maskable"
+          purpose: "any"
+        },
+        {
+          src: "osaki_ft_logo_512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable"
         }
       ]
     },
