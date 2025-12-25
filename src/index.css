@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Host Grotesk', 'Zen Kaku Gothic New', sans-serif;
+}
