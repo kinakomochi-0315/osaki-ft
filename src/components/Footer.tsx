@@ -8,7 +8,7 @@ export default function Footer() {
         const shareData = {
             title: "大崎上島 フェリー時刻表",
             text: "大崎上島のフェリー時刻表を確認できる便利なアプリです。",
-            url: window.location.origin,
+            url: window.location.origin + import.meta.env.BASE_URL,
         };
 
         if (navigator.share) {
