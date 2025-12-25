@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/osaki-ft/',
   plugins: [react(), tailwindcss(), VitePWA({
     devOptions: { enabled: true },
     registerType: "autoUpdate",
