@@ -101,7 +101,7 @@ export default function App() {
     })();
 
     return (
-        <div className="min-h-screen bg-blue-50 flex flex-col">
+        <div className="min-h-screen bg-blue-50 flex flex-col items-center">
             <Header currentTime={currentTime} />
 
             <RouteSelector
@@ -115,7 +115,7 @@ export default function App() {
             />
 
             {/* コンテンツエリア */}
-            <div className="flex-1 mt-20 px-6">
+            <div className="flex-1 mt-20 px-6 w-full max-w-xl">
                 {filterPorts.length > 0 && (
                     <PortFilterButtons
                         ports={filterPorts}

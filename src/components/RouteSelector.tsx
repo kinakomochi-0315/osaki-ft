@@ -22,7 +22,7 @@ export default function RouteSelector({
     destinationPorts,
 }: RouteSelectorProps) {
     return (
-        <div className="relative -my-14 mx-6">
+        <div className="relative -my-14 w-full max-w-md px-6">
             <div className="bg-white rounded-3xl shadow-lg p-4 space-y-4">
                 <div className="flex flex-col justify-center">
                     {/* 出発地 */}
