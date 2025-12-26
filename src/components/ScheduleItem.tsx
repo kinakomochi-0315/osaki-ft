@@ -67,7 +67,7 @@ export default function ScheduleItem({
                 {/* 出発時刻 */}
                 <div className="flex-1 flex flex-col items-center">
                     <span className={`text-2xl font-bold ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{departureTime}</span>
-                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{PORTS[route.from].displayName}</span>
+                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{`${PORTS[route.from].displayName} 発`}</span>
                 </div>
 
                 {/* 所要時間 */}
@@ -79,8 +79,8 @@ export default function ScheduleItem({
 
                 {/* 到着時刻 */}
                 <div className="flex-1 flex flex-col items-center">
-                    <span className={`text-2xl font-bold ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{arrivalTime}</span>
-                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{PORTS[route.to].displayName}</span>
+                    <span className={`text-2xl ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{arrivalTime}</span>
+                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{`${PORTS[route.to].displayName} 着`}</span>
                 </div>
             </div>
         </div>
