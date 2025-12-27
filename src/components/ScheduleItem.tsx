@@ -56,12 +56,6 @@ export default function ScheduleItem({
                     </span>
                 </div>
             )}
-            {isDeparted && (
-                <div className="bg-gray-500 rounded-full w-fit text-white px-2 flex gap-2 items-center">
-                    <IconClock size={16} />
-                    <span className="text-xs leading-4">出発済み</span>
-                </div>
-            )}
 
             <div className="flex items-center">
                 {/* 出発時刻 */}
