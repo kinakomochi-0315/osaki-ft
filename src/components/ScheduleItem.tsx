@@ -39,9 +39,9 @@ export default function ScheduleItem({
     const isDeparted = minutesUntilDeparture <= 0;
 
     return (
-        <div className={`flex flex-col py-3 rounded-xl shadow ${isDeparted ? 'bg-gray-200' : 'bg-white'}`}>
-            {minutesUntilDeparture >= 0 && (
-                <div className="bg-blue-400 rounded-r-full w-fit text-white px-2 flex gap-2 items-center">
+        <div className={`flex flex-col p-3 rounded-xl shadow ${isDeparted ? 'bg-gray-200' : 'bg-white'}`}>
+            {!isDeparted && (
+                <div className="bg-blue-400 rounded-full w-fit text-white px-2 flex gap-2 items-center">
                     <IconClock size={16} />
                     <span className="text-xs">
                         {minutesUntilDeparture >= 60 ? (
@@ -57,16 +57,16 @@ export default function ScheduleItem({
                 </div>
             )}
             {isDeparted && (
-                <div className="bg-gray-500 rounded-r-full w-fit text-white px-2 flex gap-2 items-center">
+                <div className="bg-gray-500 rounded-full w-fit text-white px-2 flex gap-2 items-center">
                     <IconClock size={16} />
-                    <span className="text-xs">出発済み</span>
+                    <span className="text-xs leading-4">出発済み</span>
                 </div>
             )}
 
-            <div className="flex items-center px-3">
+            <div className="flex items-center">
                 {/* 出発時刻 */}
                 <div className="flex-1 flex flex-col items-center">
-                    <span className={`text-2xl font-bold ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{departureTime}</span>
+                    <span className={`text-2xl font-bold leading-8 ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{departureTime}</span>
                     <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{`${PORTS[route.from].displayName} 発`}</span>
                 </div>
 
@@ -79,7 +79,7 @@ export default function ScheduleItem({
 
                 {/* 到着時刻 */}
                 <div className="flex-1 flex flex-col items-center">
-                    <span className={`text-2xl ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{arrivalTime}</span>
+                    <span className={`text-xl leading-8 ${isDeparted ? 'text-gray-600' : 'text-gray-800'}`}>{arrivalTime}</span>
                     <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{`${PORTS[route.to].displayName} 着`}</span>
                 </div>
             </div>
