@@ -36,7 +36,7 @@ export default function ScheduleItem({
     const arrivalTime = calculateArrivalTime(departureTime, duration);
 
     // 出発後かどうかを判定
-    const isDeparted = minutesUntilDeparture < 0;
+    const isDeparted = minutesUntilDeparture <= 0;
 
     return (
         <div className={`flex flex-col py-3 rounded-xl shadow ${isDeparted ? 'bg-gray-200' : 'bg-white'}`}>
