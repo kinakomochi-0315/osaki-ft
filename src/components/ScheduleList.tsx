@@ -32,9 +32,9 @@ export default function ScheduleList({ schedules, currentTime }: ScheduleListPro
             return aMinutes - bMinutes;
         }
 
-        // 両方とも出発済みの場合、より最近出発した方を優先（時間が大きい方）
+        // 両方とも出発後の場合
         if (aMinutes < 0 && bMinutes < 0) {
-            return bMinutes - aMinutes;
+            return aMinutes - bMinutes;
         }
 
         // 片方が出発前、片方が出発済みの場合、出発前を優先
