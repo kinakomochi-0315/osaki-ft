@@ -39,29 +39,29 @@ export default function ScheduleItem({
     const isDeparted = minutesUntilDeparture <= 0;
 
     return (
-        <div className={`flex flex-col p-3 rounded-xl shadow ${isDeparted ? 'bg-gray-200' : 'bg-white'}`}>
+        <div className={`flex flex-col p-2 rounded-xl ${isDeparted ? 'bg-gray-200' : 'bg-white'}`}>
             {!isDeparted && (
                 <div className="bg-blue-400 rounded-full w-fit ml-auto text-white px-2 flex gap-2 items-center">
                     <IconClock size={16} />
                     <span className="text-xs">
                         {minutesUntilDeparture >= 60 ? (
                             <>
-                                <span className="text-[16px]">{Math.floor(minutesUntilDeparture / 60)}</span>時間<span className="text-[16px]">{(minutesUntilDeparture % 60).toString().padStart(2, '0')}</span>分後
+                                <span className="text-lg">{Math.floor(minutesUntilDeparture / 60)}</span>時間<span className="text-lg">{(minutesUntilDeparture % 60).toString().padStart(2, '0')}</span>分後
                             </>
                         ) : (
                             <>
-                                <span className="text-[16px]">{minutesUntilDeparture}</span>分後
+                                    <span className="text-lg">{minutesUntilDeparture}</span>分後
                             </>
                         )}
                     </span>
                 </div>
             )}
 
-            <div className="flex items-center">
+            <div className="flex items-center py-1">
                 {/* 出発時刻 */}
                 <div className="flex-1 flex flex-col items-center">
                     <span className={`text-3xl font-medium leading-8 ${isDeparted ? 'text-gray-600' : 'text-blue-800'}`}>{departureTime}</span>
-                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{`${PORTS[route.from].displayName} 発`}</span>
+                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-blue-400'}`}>{`${PORTS[route.from].displayName} 発`}</span>
                 </div>
 
                 {/* 所要時間 */}
@@ -73,8 +73,8 @@ export default function ScheduleItem({
 
                 {/* 到着時刻 */}
                 <div className="flex-1 flex flex-col items-center">
-                    <span className={`text-xl leading-8 ${isDeparted ? 'text-gray-600' : 'text-gray-700'}`}>{arrivalTime}</span>
-                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-gray-500'}`}>{`${PORTS[route.to].displayName} 着`}</span>
+                    <span className={`text-xl leading-8 ${isDeparted ? 'text-gray-600' : 'text-blue-800'}`}>{arrivalTime}</span>
+                    <span className={`text-xs ${isDeparted ? 'text-gray-500' : 'text-blue-400'}`}>{`${PORTS[route.to].displayName} 着`}</span>
                 </div>
             </div>
         </div>
