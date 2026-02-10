@@ -4,6 +4,7 @@ import RouteSelector from "./components/RouteSelector";
 import PortFilterButtons from "./components/PortFilterButtons";
 import ScheduleList from "./components/ScheduleList";
 import Footer from "./components/Footer";
+import OtohimeBusInfo from "./components/OtohimeBusInfo";
 import { FERRY_SCHEDULES } from "./data/schedules";
 import { VALID_AREA_ROUTES, AREAS } from "./data/constants";
 import type { AreaCode, PortCode } from "./data/types";
@@ -32,7 +33,6 @@ function getFilterPorts(departure: AreaCode, destination: AreaCode): PortCode[] 
 
     return [];
 }
-
 
 export default function App() {
     const initialState = (() => {
@@ -112,7 +112,7 @@ export default function App() {
     // フィルター用のポートリストを決定
     const filterPorts = useMemo(
         () => getFilterPorts(departure, destination),
-        [departure, destination]
+        [departure, destination],
     );
 
     useEffect(() => {
@@ -130,14 +130,14 @@ export default function App() {
         schedules = schedules.filter(
             (schedule) =>
                 departurePorts.includes(schedule.route.from) &&
-                destinationPorts.includes(schedule.route.to)
+                destinationPorts.includes(schedule.route.to),
         );
 
         // ポートによるフィルター
         if (selectedPort) {
             schedules = schedules.filter(
                 (schedule) =>
-                    schedule.route.from === selectedPort || schedule.route.to === selectedPort
+                    schedule.route.from === selectedPort || schedule.route.to === selectedPort,
             );
         }
 
@@ -146,7 +146,7 @@ export default function App() {
 
     return (
         <div className="min-h-screen bg-blue-50 flex flex-col items-center">
-            <Header currentTime={currentTime} />
+            <Header currentTime={currentTime}/>
 
             <RouteSelector
                 departure={departure}
@@ -168,10 +168,14 @@ export default function App() {
                     />
                 )}
 
-                <ScheduleList schedules={filteredSchedules} currentTime={currentTime} />
+                {(departure === "OSAKIKAMIJIMA" || destination === "OSAKIKAMIJIMA") && (
+                    <OtohimeBusInfo />
+                )}
+
+                <ScheduleList schedules={filteredSchedules} currentTime={currentTime}/>
             </div>
 
-            <Footer />
+            <Footer/>
         </div>
     );
 }
