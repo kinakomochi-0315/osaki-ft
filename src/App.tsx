@@ -143,10 +143,11 @@ export default function App() {
 
         return schedules;
     })();
+    const isDepartingFromIsland = departure === "OSAKIKAMIJIMA";
 
     return (
-        <div className="min-h-screen bg-blue-50 flex flex-col items-center">
-            <Header currentTime={currentTime}/>
+        <div className={`min-h-screen flex flex-col items-center ${isDepartingFromIsland ? "bg-blue-500" : "bg-blue-50"}`}>
+            <Header currentTime={currentTime} isLightBackground={isDepartingFromIsland}/>
 
             <RouteSelector
                 departure={departure}
@@ -175,7 +176,7 @@ export default function App() {
                 <ScheduleList schedules={filteredSchedules} currentTime={currentTime}/>
             </div>
 
-            <Footer/>
+            <Footer isDarkBackground={isDepartingFromIsland}/>
         </div>
     );
 }

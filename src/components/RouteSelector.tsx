@@ -31,7 +31,7 @@ export default function RouteSelector({
                         value={departure}
                         onChange={onDepartureChange}
                         options={departurePorts}
-                        icon={<IconMapPin className="text-blue-600" />}
+                        icon={<IconMapPin />}
                     />
 
                     {/* 入れ替えボタン */}
@@ -49,7 +49,7 @@ export default function RouteSelector({
                         value={destination}
                         onChange={onDestinationChange}
                         options={destinationPorts}
-                        icon={<IconLocation className="text-blue-600" />}
+                        icon={<IconLocation />}
                     />
                 </div>
             </div>
