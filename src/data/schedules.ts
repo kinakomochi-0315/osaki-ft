@@ -32,6 +32,10 @@ export const FERRY_SCHEDULES: FerrySchedule[] = [
     },
     {
         route: { from: "TAKEHARA", to: "TARUMI" },
+        departureTime: "13:30",
+    },
+    {
+        route: { from: "TAKEHARA", to: "TARUMI" },
         departureTime: "14:25",
     },
     {
@@ -309,6 +313,10 @@ export const FERRY_SCHEDULES: FerrySchedule[] = [
     {
         route: { from: "AKITSU", to: "ONISHI" },
         departureTime: "16:05",
+    },
+    {
+        route: { from: "AKITSU", to: "ONISHI" },
+        departureTime: "16:45",
     },
     {
         route: { from: "AKITSU", to: "ONISHI" },
