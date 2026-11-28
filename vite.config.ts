@@ -6,6 +6,16 @@ import { VitePWA } from 'vite-plugin-pwa';
 // https://vite.dev/config/
 export default defineConfig({
   base: '/osaki-ft/',
+  server: {
+    proxy: {
+      '^/osaki-ft/api/ferry-mail-receiver/now(?:\\?|$)': {
+        target: 'https://lab.chimonakiko.net',
+        changeOrigin: true,
+        /** GitHub Pages のベースパスを除いた Worker 用の URL への変換 */
+        rewrite: (path) => path.slice('/osaki-ft'.length),
+      },
+    },
+  },
   plugins: [react(), tailwindcss(), VitePWA({
     injectRegister: 'auto',
     registerType: "autoUpdate",

@@ -5,6 +5,7 @@ import PortFilterButtons from "./components/PortFilterButtons";
 import ScheduleList from "./components/ScheduleList";
 import Footer from "./components/Footer";
 import OtohimeBusInfo from "./components/OtohimeBusInfo";
+import FerryNotice from "./components/FerryNotice";
 import { FERRY_SCHEDULES } from "./data/schedules";
 import { VALID_AREA_ROUTES, AREAS } from "./data/constants";
 import type { AreaCode, PortCode } from "./data/types";
@@ -167,6 +168,10 @@ export default function App() {
                         selectedPort={selectedPort}
                         onPortSelect={setSelectedPort}
                     />
+                )}
+
+                {(departure === "TAKEHARA" || destination === "TAKEHARA") && (
+                    <FerryNotice currentTime={currentTime} />
                 )}
 
                 {(departure === "OSAKIKAMIJIMA" || destination === "OSAKIKAMIJIMA") && (
